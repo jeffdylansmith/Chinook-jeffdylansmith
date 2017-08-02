@@ -4,3 +4,9 @@ SELECT substr(Invoice.InvoiceDate,0,5) as "Year", COUNT (InvoiceId) as "Inv Coun
 FROM Invoice
 WHERE substr(Invoice.InvoiceDate,0,5)="2009" OR substr(Invoice.InvoiceDate,0,5)="2011"
 GROUP BY substr(Invoice.InvoiceDate,0,5);
+
+--Or--
+
+select count(i.InvoiceId) NumberofInvoices,
+    strftime('%y', i.InvoiceDate) as InvoiceYear
+    from Invoice I
